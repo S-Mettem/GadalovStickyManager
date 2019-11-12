@@ -1,0 +1,2 @@
+# GadalovStickyManager
+ Менеджер заметок
