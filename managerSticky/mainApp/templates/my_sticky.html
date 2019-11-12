@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}My stickys - Manager Sticky{% endblock %}
+{% block content %}
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 sticky__">
+					
+					<h3 class="sticky__logo"> {{user.username}}! Your Stickys is here!</h3>
+					<a href="{% url 'mainApp:create_sticky' user.username %}">
+						<h4 class='sticky__logo'>You can add here!</h4>
+					</a>
+
+					{% for s in stickys %}
+
+						<div class="d-flex">
+							<a href="{% url 'mainApp:sticky' user.username s.uuidu %}">
+								<h4>{{s.title}}</h4>
+							</a>
+							<p class="sticky__category">{{s.category}}</p>
+							
+							<h5>
+								<a href="{% url 'mainApp:edit_sticky' user.username s.uuidu %}">
+									<i class="fa fa-pencil img__pen"></i>
+								</a>
+								<a href="{% url 'mainApp:favorite_sticky' user.username s.uuidu %}">
+									{% if s.favorite == False %}
+										<i class="fa fa-map-pin img__fav"></i>
+									{% else %}
+										<i class="fa fa-map-pin img__Tfav"></i>
+									{% endif %}
+								</a>
+								<a href="{% url 'mainApp:delete_sticky' user.username s.uuidu %}">
+									<i class="fa fa-times img__pen"></i>
+								</a>
+								
+							</h5>
+						</div>
+						
+						<div class="border_bottom d-flex sticky__fordiv">
+							<a href="{%url 'mainApp:public_sticky' user.username s.uuidu%}">
+							{% if s.is_public == True %}
+
+								<h5 class="sticky__date">
+									<i class="fa fa-eye img__pen"></i>
+								</h5>
+
+							{% else %}
+
+								<h5 class="sticky__date">
+									<i class="fa fa-eye-slash img__pen"></i>
+								</h5>
+
+							{% endif %}
+						</a>
+							<p class="sticky__category">{{ s.date_added }}</p>
+						</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock content %}

@@ -1,0 +1,131 @@
+/* Specification */
+
+.all_center{
+	margin: 0 auto;
+}
+
+.border_bottom{
+	border-bottom: 1px solid #6b6666;
+}
+
+a{
+	color: black;
+}
+
+a:hover{
+	color: black;
+}
+
+/*------------------------*/
+
+/* base.html */
+/* Header */
+
+.header__{
+	padding-top: 15px;
+}
+
+.header__logo{
+	font-family: 'Yeon Sung', cursive;
+}
+
+.header__tagline{
+	padding-top: 10px;
+	font-weight: bold;
+}
+
+.nav_bar{
+	width: 100%;
+	border-top: #807c7c solid 1px;
+	background: #cccccc;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.sign_up_size{
+	width: 250px;
+}
+/*----------------------------*/
+
+/* signup.html */
+
+.form__{
+	padding-top: 25px;
+}
+
+.form__button{
+	margin-top: 25px;
+	border: none;
+    text-decoration: none;
+    padding: 15px 32px;
+    margin-bottom: 25px;
+
+}
+
+.form__button:hover{
+	color: white;
+	background: #545454;
+}
+/*---------------------------*/
+
+/* index.html */
+
+.sticky__{
+	padding-top: 25px;
+	padding-bottom: 15px;
+}
+
+.sticky__logo{
+	padding-top: 0px;
+	padding-bottom: 20px;
+	font-family: cursive;
+	text-align: center;
+}
+
+.sticky__category{
+	padding-left: 15px;
+}
+
+.sticky__date{
+	padding-right: 20px;
+	text-align: left;
+}
+
+.sticky__fordiv{
+	margin-bottom: 25px;
+}
+/*----------------------------*/
+
+/* my_sticky.html */
+
+.img__pen{
+	margin-left: 10px;
+}
+
+.img__pen:hover{
+	color: #ff0000;
+	cursor: pointer;
+}
+
+.img__fav{
+	margin-left: 10px;
+}
+
+.img__fav:hover{
+	color: #ff0000;
+	cursor: pointer;
+}
+
+.img__Tfav{
+	margin-left: 10px;
+	color: #ab931a;
+}
+
+.img__Tfav:hover{
+	color: #ff0000;
+	cursor: pointer;
+}
+
+.sticky__content{
+	font-size: 25px;
+}

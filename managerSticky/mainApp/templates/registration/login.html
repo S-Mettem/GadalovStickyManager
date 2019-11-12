@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign up - Manager Sticky{% endblock title %}
+
+{% block content %}
+<seciton class="">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12 text-center">
+
+				<form action="" method="post" class="form__">
+
+					{% csrf_token %}
+					{% for field in form %}
+						<p>{{field.label_tag}}</p>
+						<p>{{field}}</p>
+					{% endfor %}
+
+					<button type="submit" class="form__button">Send</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</seciton>
+
+{% endblock content %}

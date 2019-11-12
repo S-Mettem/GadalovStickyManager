@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Home page - Manager Sticky{% endblock title %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 sticky__">
+			<h3 class="sticky__logo">Most popular public post:</h3>
+			
+			{% for sticky in stickys %}
+
+				{% if sticky.is_public == True %}
+					<div class="d-flex">
+						<a href="{% url 'mainApp:all' sticky.uuidu %}">
+							<h4>{{sticky.title}}</h4>
+						</a>
+						<p class="sticky__category">{{sticky.category}}</p>
+					</div>
+					<div class="border_bottom d-flex sticky__fordiv">
+						<span class="sticky__date">{{sticky.user}}</span>
+						<p class="sticky__category">{{ sticky.date_added }}</p>
+					</div>
+				{% endif %}
+
+			{% empty %}
+
+				<h3>No sticky here yet.</h3>
+
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

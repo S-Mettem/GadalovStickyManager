@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}For all {{sticky.title.title}} - Manager Sticky{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-12 sticky__ text-center">
+			<div class="">
+				<h3 class="sticky__logo">{{sticky.title.title}}</h3>
+				<h4>User - {{sticky.user}}</p>
+			</div>
+		</div>
+
+
+				{% if sticky.is_public == True %}
+
+					<div class="d-flex">
+						<h5 class="">
+							<i class="fa fa-eye sticky__category"></i>
+							Is Publish
+						</h5>
+					</div>
+
+				{% else %}
+
+					<div class="d-flex">
+						<h5 class="">
+							<i class="fa fa-eye-slash sticky__category"></i>
+							Is Private
+						</h5>
+					</div>
+
+				{% endif %}
+
+			<h5 class="sticky__category">{{sticky.category.title}}</h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 sticky__ text-center">
+			<h4 class="text-center sticky__logo">Content:</h4>
+			<p class="sticky__content">{{sticky.content}}</p>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
