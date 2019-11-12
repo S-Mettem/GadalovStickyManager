@@ -59,8 +59,8 @@ def create_sticky(request, user_name):
                 comment.user = request.user
                 comment.save()
                 return redirect('mainApp:my_sticky', user_name=user.username)
-            context = {'form': form, 'user': user}
-            return render(request, 'create_sticky.html', context)
+        context = {'form': form, 'user': user}
+        return render(request, 'create_sticky.html', context)
 
     else:
         return redirect('mainApp:404')
@@ -138,10 +138,10 @@ def public_sticky(request, user_name, sticky_id):
                 sticky.is_public = False
             else:
                 sticky.is_public = True
-                sticky.save()
-                return redirect('mainApp:my_sticky', user_name=user.username)
-        else:
-            return redirect('mainApp:sticky', user_name=user.username,
+            sticky.save()
+            return redirect('mainApp:my_sticky', user_name=user.username)
+
+        return redirect('mainApp:sticky', user_name=user.username,
                             sticky_id=sticky.uuidu)
     else:
         return redirect('mainApp:404')
@@ -149,21 +149,3 @@ def public_sticky(request, user_name, sticky_id):
 
 def page404(request):
     return render(request, '404.html')
-
-
-def filter(request, pk):
-    stickys = Sticky.objects.all()
-
-    if pk == 1:
-        stickys = stickys.order_by('-date_added')
-    elif pk == 2:
-        stickys = stickys.order_by('title')
-    elif pk == 3:
-        stickys = stickys.order_by('category')
-    elif pk == 4:
-        stickys = stickys.order_by('faverite')
-    else:
-        return redirect('mainApp:index')
-
-    context = {'styckys': stickys}
-    return render(request, 'index.html', context)
