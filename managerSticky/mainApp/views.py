@@ -118,10 +118,10 @@ def favorite_sticky(request, user_name, sticky_id):
                 sticky.favorite = False
             else:
                 sticky.favorite = True
-                sticky.save()
-                return redirect('mainApp:my_sticky', user_name=user.username)
-        else:
-            return redirect('mainApp:sticky', user_name=user.username,
+            sticky.save()
+            return redirect('mainApp:my_sticky', user_name=user.username)
+
+        return redirect('mainApp:sticky', user_name=user.username,
                             sticky_id=sticky.uuidu)
     else:
         return redirect('mainApp:404')
